@@ -58,4 +58,42 @@ public class JobTest {
 
     assertNotEquals(job1, job2);
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job testJob = new Job("Jedi Master", new Employer("The Council"), new Location("Coruscant"), new PositionType("Master Jedi"), new CoreCompetency("The Force"));
+        String expectedOutput = System.lineSeparator() + testJob.toString() + System.lineSeparator();
+        assertEquals(testJob.toString().startsWith(System.lineSeparator()), true);
+        assertEquals(testJob.toString().endsWith(System.lineSeparator()), true);
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job testJob = new Job("Jedi Master", new Employer("The Council"), new Location("Coruscant"), new PositionType("Master Jedi"), new CoreCompetency("The Force"));
+        String output = System.lineSeparator() +
+                        "ID: " + testJob.getId() + "\n" +
+                        "Name: " + testJob.getName() + "\n" +
+                        "Employer: " + testJob.getEmployer() + "\n" +
+                        "Location: " + testJob.getLocation() + "\n" +
+                        "Position Type: " + testJob.getPositionType() + "\n" +
+                        "Core Competency: " + testJob.getCoreCompetency() +
+                                System.lineSeparator() ;
+
+        assertEquals(output, testJob.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job missingLocation = new Job("Jedi Master", new Employer("The Council"), new Location(""), new PositionType("Master Jedi"), new CoreCompetency("The Force"));
+        String expectedOutput = System.lineSeparator() +
+                "ID: " + missingLocation.getId() + "\n" +
+                "Name: " + missingLocation.getName() + "\n" +
+                "Employer: " + missingLocation.getEmployer() + "\n" +
+                "Location: Data not available" + "\n" +
+                "Position Type: " + missingLocation.getPositionType() + "\n" +
+                "Core Competency: " + missingLocation.getCoreCompetency() +
+                System.lineSeparator() ;
+
+        assertEquals(expectedOutput, missingLocation.toString());
+    }
 }

@@ -31,7 +31,45 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+    @Override
+    public String toString() {
+
+        String nameOutput = "Name: " + name + "\n";
+        if (name == null) {
+            nameOutput = "Data not available" + "\n";
+        }
+
+        String employerOutput = "Employer: " + employer + "\n";
+        if (employer.getValue().isEmpty()){
+            employerOutput= "Employer: Data not available" + "\n";
+        }
+
+        String locationOutput = "Location: " + location + "\n";
+        if (location.getValue().isEmpty()){
+            locationOutput = "Location: Data not available" + "\n";
+        }
+
+        String typeOutput = "Position Type: " + positionType + "\n";
+        if (positionType.getValue().isEmpty()){
+            typeOutput = "Position Type: Data not available" + "\n";
+        }
+
+        String coreOutput = "Core Competency: " + coreCompetency;
+        if (coreCompetency.getValue().isEmpty()){
+            coreOutput = "Core Competency: Data not available" + "\n";
+        }
+
+
+        return  System.lineSeparator() +
+                "ID: " + id + "\n" +
+                nameOutput +
+                employerOutput +
+                locationOutput +
+                typeOutput +
+                coreOutput +
+                System.lineSeparator();
+    }
+// TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
     @Override
