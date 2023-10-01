@@ -34,26 +34,24 @@ public class Job {
     @Override
     public String toString() {
 
-        String newLine = System.lineSeparator();
-
-        String nameOutput = "Name: " + name + newLine;
+        String nameOutput = "Name: " + name + "\n";
         if (name == null) {
-            nameOutput = "Data not available" + newLine;
+            nameOutput = "Data not available" + "\n";
         }
 
-        String employerOutput = "Employer: " + employer + newLine;
+        String employerOutput = "Employer: " + employer + "\n";
         if (employer.getValue().isEmpty()){
-            employerOutput= "Employer: Data not available" + newLine;
+            employerOutput= "Employer: Data not available" + "\n";
         }
 
-        String locationOutput = "Location: " + location + newLine;
+        String locationOutput = "Location: " + location + "\n";
         if (location.getValue().isEmpty()){
-            locationOutput = "Location: Data not available" + newLine;
+            locationOutput = "Location: Data not available" + "\n";
         }
 
-        String typeOutput = "Position Type: " + positionType + newLine;
+        String typeOutput = "Position Type: " + positionType + "\n";
         if (positionType.getValue().isEmpty()){
-            typeOutput = "Position Type: Data not available" + newLine;
+            typeOutput = "Position Type: Data not available" + "\n";
         }
 
         String coreOutput = "Core Competency: " + coreCompetency;
@@ -62,14 +60,14 @@ public class Job {
         }
 
 
-        return  newLine +
-                "ID: " + id + newLine +
+        return  System.lineSeparator() +
+                "ID: " + id + "\n" +
                 nameOutput +
                 employerOutput +
                 locationOutput +
                 typeOutput +
                 coreOutput +
-                newLine;
+                System.lineSeparator();
     }
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
