@@ -34,40 +34,42 @@ public class Job {
     @Override
     public String toString() {
 
-        String nameOutput = "Name: " + name + "\n";
+        String newLine = System.lineSeparator();
+
+        String nameOutput = "Name: " + name + newLine;
         if (name == null) {
-            nameOutput = "Data not available" + "\n";
+            nameOutput = "Data not available" + newLine;
         }
 
-        String employerOutput = "Employer: " + employer + "\n";
+        String employerOutput = "Employer: " + employer + newLine;
         if (employer.getValue().isEmpty()){
-            employerOutput= "Employer: Data not available" + "\n";
+            employerOutput= "Employer: Data not available" + newLine;
         }
 
-        String locationOutput = "Location: " + location + "\n";
+        String locationOutput = "Location: " + location + newLine;
         if (location.getValue().isEmpty()){
-            locationOutput = "Location: Data not available" + "\n";
+            locationOutput = "Location: Data not available" + newLine;
         }
 
-        String typeOutput = "Position Type: " + positionType + "\n";
+        String typeOutput = "Position Type: " + positionType + newLine;
         if (positionType.getValue().isEmpty()){
-            typeOutput = "Position Type: Data not available" + "\n";
+            typeOutput = "Position Type: Data not available" + newLine;
         }
 
         String coreOutput = "Core Competency: " + coreCompetency;
         if (coreCompetency.getValue().isEmpty()){
-            coreOutput = "Core Competency: Data not available" + "\n";
+            coreOutput = "Core Competency: Data not available";
         }
 
 
-        return  System.lineSeparator() +
-                "ID: " + id + "\n" +
+        return  newLine +
+                "ID: " + id + newLine +
                 nameOutput +
                 employerOutput +
                 locationOutput +
                 typeOutput +
                 coreOutput +
-                System.lineSeparator();
+                newLine;
     }
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
